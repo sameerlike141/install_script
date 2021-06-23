@@ -318,7 +318,7 @@ rm -rf /root/dropbear-2020.80
 
 # squid3
 apt-get -y install squid
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Squid/squid.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Squid/squid.conf"
 sed -i "s/ipserver/$myip/g" /etc/squid/squid.conf
 
 # Installing OpenVPN by pulling its repository inside sources.list file 
@@ -700,7 +700,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 apt-get -y install nginx libexpat1-dev libxml-parser-perl
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Nginx/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Nginx/nginx.conf"
 mkdir -p /home/vps/public_html
 wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Nginx/vps.conf"
 
