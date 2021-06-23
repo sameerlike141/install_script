@@ -34,14 +34,3 @@ wget https://raw.githubusercontent.com/khvpn/install_script/master/AutoScript.sh
 <p align="center">
 Recommended OS: Debian 9 Buster x64
 
-<h3 align="center">Screenshots</h3>
-<p align="center">
-<img src="https://github.com/khvpn/install_script/raw/master/Snapshots/1.png">
-   </p>
-  <p align="center">
-  <img src="https://github.com/khvpn/install_script/raw/master/Snapshots/2.png">
-   </p>
-  <p align="center">
-  <img src="https://github.com/khvpn/install_script/raw/master/Snapshots/3.png">
-   </p>
-   
