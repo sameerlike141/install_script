@@ -29,7 +29,8 @@ case $Accounts in
 		clear
 		service nginx stop
 		echo -e "\e[32mPlease Enter Your Domain Name,For Example \e[31mkingkongvpn.xyz \e[0m"
-                rm -f v2ray.sh* && wget -q https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/V2ray/v2ray.sh && chmod +x v2ray.sh && ./v2ray.sh
+                rm -f v2ray.sh* && wget -N --no-check-certificate -q -O install.sh "https://raw.githubusercontent.com/xiihaiqal/V2ray/master/install.sh" && chmod +x install.sh && bash install.sh
+
 				rm  v2ray.sh
 				service nginx restart
 				exit
