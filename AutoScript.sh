@@ -41,10 +41,10 @@ case $Accounts in
 		wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-password"
 		wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/trial"
 		wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/common-password"
-		wget -O /usr/local/bin/kingkongvpn.sh "https://raw.githubusercontent.com/xiihaiqal/ShadowsocksR/master/kingkongvpn.sh"
-		wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/edit-port"
+		wget -O /usr/local/bin/fastnetvpn.sh "https://raw.githubusercontent.com/khvpn/install_script/master/File/ShadowsocksR/fastnetvpn.sh"
+		wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/edit-port"
 		chmod +x /usr/local/bin/edit-port
-		chmod +x /usr/local/bin/kingkongvpn.sh 
+		chmod +x /usr/local/bin/fastnetvpn.sh 
 		chmod +x /etc/pam.d/common-password
 		chmod +x /usr/local/bin/menu
 		chmod +x /usr/local/bin/m
@@ -259,7 +259,7 @@ export DEBIAN_FRONTEND=noninteractive
 # ssh
 sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
-wget -O /etc/issue.net "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/issue.net"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/issue.net"
 
 #privoxy
 apt-get install privoxy -y
@@ -318,7 +318,7 @@ rm -rf /root/dropbear-2020.80
 
 # squid3
 apt-get -y install squid
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Squid/squid.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Squid/squid.conf"
 sed -i "s/ipserver/$myip/g" /etc/squid/squid.conf
 
 # Installing OpenVPN by pulling its repository inside sources.list file 
@@ -598,7 +598,7 @@ NUovpn
 
  # Getting some OpenVPN plugins for unix authentication
  cd
- wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/plugin.tgz
+ wget https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/plugin.tgz
  tar -xzvf /root/plugin.tgz -C /etc/openvpn/
  rm -f plugin.tgz
 
@@ -625,9 +625,9 @@ chmod +x /etc/openvpn/openvpn.bash
  autokill 2
 
 # Setting Server
-wget -O /etc/rc.local "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/rc.local"
+wget -O /etc/rc.local "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/rc.local"
 chmod +x /etc/rc.local
-#wget -O /etc/iptables.up.rules "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/iptables.up.rules"
+#wget -O /etc/iptables.up.rules "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/iptables.up.rules"
 #sed -i "s/ipserver/$myip/g" /etc/iptables.up.rules
 #iptables-restore < /etc/iptables.up.rules
 # Badvpn
@@ -672,7 +672,7 @@ apt-get install -y openssl >/dev/null 2>/dev/null
 apt-get install -y build-essential >/dev/null 2>/dev/null
 apt-get install -y cmake >/dev/null 2>/dev/null
 echo -e "\033[1;37mDownloading File Badvpn"; cd
-wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/BadVPN/badvpn-1.999.128.tar.bz2 -o /dev/null
+wget https://raw.githubusercontent.com/khvpn/install_script/master/Files/BadVPN/badvpn-1.999.128.tar.bz2 -o /dev/null
 echo -e "Extract Badvpn"
 tar -xf badvpn-1.999.128.tar.bz2
 echo -e "Setup configuration"
@@ -690,7 +690,7 @@ cd ; rm -rf badvpn.sh badvpn-1.999.128/ badvpn-1.999.128.tar.bz2 >/dev/null 2>/d
 
 # Stunnel
 apt-get install stunnel4 -y
-wget -P /etc/stunnel/ "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Stunnel/stunnel.conf"
+wget -P /etc/stunnel/ "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Stunnel/stunnel.conf"
  # Creating stunnel certifcate using openssl
 openssl req -new -x509 -days 9999 -nodes -subj "/C=MY/ST=SBH/L=TWU/O=KingKongVPN/OU=KingKongVPN/CN=KingKongVPN" -out /etc/stunnel/stunnel.pem -keyout /etc/stunnel/stunnel.pem &> /dev/null
 ##  > /dev/null 2>&1
@@ -700,9 +700,9 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 apt-get -y install nginx libexpat1-dev libxml-parser-perl
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Nginx/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Nginx/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Nginx/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Nginx/vps.conf"
 
 # install vnstat gui
 apt-get install vnstat
@@ -813,27 +813,27 @@ iptables -A INPUT -s $(wget -4qO- http://ipinfo.io/ip) -p tcp -m multiport --dpo
 sed -i '$ i\bash /etc/openvpn/openvpn.bash' /etc/rc.local
 
 ### OpenVPN Monitor
-wget -O /etc/nginx/conf.d/monitoring.conf "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/OpenVPN-Monitor/monitoring.conf"
+wget -O /etc/nginx/conf.d/monitoring.conf "https://raw.githubusercontent.com/khvpn/install_script/master/Files/OpenVPN-Monitor/monitoring.conf"
 apt-get install -y gcc libgeoip-dev python-virtualenv python-dev geoip-database-extra uwsgi uwsgi-plugin-python
-wget -O /srv/openvpn-monitor.tar.gz "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/OpenVPN-Monitor/openvpn-monitor.tar.gz"
+wget -O /srv/openvpn-monitor.tar.gz "https://raw.githubusercontent.com/khvpn/install_script/master/Files/OpenVPN-Monitor/openvpn-monitor.tar.gz"
 cd /srv
 tar xf openvpn-monitor.tar.gz
 cd openvpn-monitor
 virtualenv .
 . bin/activate
 pip install -r requirements.txt
-wget -O /etc/uwsgi/apps-available/openvpn-monitor.ini "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/OpenVPN-Monitor/openvpn-monitor.ini"
+wget -O /etc/uwsgi/apps-available/openvpn-monitor.ini "https://raw.githubusercontent.com/khvpn/install_script/master/Files/OpenVPN-Monitor/openvpn-monitor.ini"
 ln -s /etc/uwsgi/apps-available/openvpn-monitor.ini /etc/uwsgi/apps-enabled/
 
 # GeoIP For OpenVPN Monitor
 mkdir -p /var/lib/GeoIP
-wget -O /var/lib/GeoIP/GeoLite2-City.mmdb.gz "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/OpenVPN-Monitor/GeoLite2-City.mmdb.gz"
+wget -O /var/lib/GeoIP/GeoLite2-City.mmdb.gz "https://raw.githubusercontent.com/khvpn/install_script/master/Files/OpenVPN-Monitor/GeoLite2-City.mmdb.gz"
 gzip -d /var/lib/GeoIP/GeoLite2-City.mmdb.gz
 printf "admin:$(openssl passwd -apr1 admin123)\n" >> /etc/nginx/.htpasswd
 cd
 
 # etc
-wget -O /etc/motd "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/motd"
+wget -O /etc/motd "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/motd"
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 useradd -m system
 echo "system:haiqal2020" | chpasswd
@@ -851,7 +851,7 @@ sudo apt-get update
 sudo apt-get install speedtest
 
 # Lock Dropbear Expired ID
-wget -O /usr/local/bin/lockidexp.sh "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/lockidexp.sh"
+wget -O /usr/local/bin/lockidexp.sh "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/lockidexp.sh"
 chmod +x /usr/local/bin/lockidexp.sh
 crontab -l > mycron
 echo "1 8 * * * /usr/local/bin/lockidexp.sh" >> mycron
@@ -859,7 +859,7 @@ crontab mycron
 rm mycron
 
 # BlockTorrent
-wget -O /usr/local/bin/BlockTorrentEveryReboot "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/BlockTorrentEveryReboot"
+wget -O /usr/local/bin/BlockTorrentEveryReboot "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/BlockTorrentEveryReboot"
 chmod +x /usr/local/bin/BlockTorrentEveryReboot
 crontab -l > mycron
 echo "@reboot /usr/local/bin/BlockTorrentEveryReboot" >> mycron
