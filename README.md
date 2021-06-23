@@ -27,7 +27,7 @@
 <h3 align="center">Installation (Default Version)</h3>
 
   ```html
-wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/AutoScript.sh && chmod +x AutoScript.sh && ./AutoScript.sh
+wget https://raw.githubusercontent.com/khvpn/install_script/master/AutoScript.sh && chmod +x AutoScript.sh && ./AutoScript.sh
   ```
   
 <h3 align="center">Additional Info</h3>
@@ -36,12 +36,12 @@ Recommended OS: Debian 9 Buster x64
 
 <h3 align="center">Screenshots</h3>
 <p align="center">
-<img src="https://github.com/xiihaiqal/AutoScriptVPS/raw/master/Snapshots/1.png">
+<img src="https://github.com/khvpn/install_script/raw/master/Snapshots/1.png">
    </p>
   <p align="center">
-  <img src="https://github.com/xiihaiqal/AutoScriptVPS/raw/master/Snapshots/2.png">
+  <img src="https://github.com/khvpn/install_script/raw/master/Snapshots/2.png">
    </p>
   <p align="center">
-  <img src="https://github.com/xiihaiqal/AutoScriptVPS/raw/master/Snapshots/3.png">
+  <img src="https://github.com/khvpn/install_script/raw/master/Snapshots/3.png">
    </p>
    
