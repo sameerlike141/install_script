@@ -259,7 +259,7 @@ export DEBIAN_FRONTEND=noninteractive
 # ssh
 sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
-wget -O /etc/issue.net "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Other/issue.net"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/issue.net"
 
 #privoxy
 apt-get install privoxy -y
@@ -897,7 +897,7 @@ clear
 echo -e ""
 echo -e "\e[94m[][][]======================================[][][]" | tee -a log-install.txt
 echo -e "\e[0m                                                   " | tee -a log-install.txt
-echo -e "\e[94m           AutoScriptVPS by KingKongVPN           " | tee -a log-install.txt
+echo -e "\e[94m           AutoScriptVPS by ChopaVPN              " | tee -a log-install.txt
 echo -e "\e[94m             https://t.me/xiihaiqal               " | tee -a log-install.txt
 echo -e "\e[94m                    Services                      " | tee -a log-install.txt
 echo -e "\e[94m                                                  " | tee -a log-install.txt
