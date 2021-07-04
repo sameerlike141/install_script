@@ -41,7 +41,7 @@ case $Accounts in
 		wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-password"
 		wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/trial"
 		wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/common-password"
-		wget -O /usr/local/bin/fastnetvpn.sh "https://raw.githubusercontent.com/khvpn/install_script/master/File/ShadowsocksR/fastnetvpn.sh"
+		wget -O /usr/local/bin/fastnetvpn.sh "https://raw.githubusercontent.com/xiihaiqal/ShadowsocksR/master/kingkongvpn.sh"
 		wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/edit-port"
 		chmod +x /usr/local/bin/edit-port
 		chmod +x /usr/local/bin/fastnetvpn.sh 
@@ -225,7 +225,7 @@ sleep 1
 echo "deb https://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
 
 # Fix Key Problem using cat eof tricks
- cat <<'key' > /root/key
+ cat <<'qra-atsilK8905??c60933d56K8888:?x?3x8%@x53@' > /root/key
 #!/bin/bash
  wget -qO - https://download.webmin.com/jcameron-key.asc | apt-key add -
  wget -qO - http://build.openvpn.net/debian/openvpn/stable/pubkey.gpg|apt-key add -
