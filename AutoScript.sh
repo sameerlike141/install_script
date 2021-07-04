@@ -225,7 +225,7 @@ sleep 1
 echo "deb https://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
 
 # Fix Key Problem using cat eof tricks
- cat <<'qra-atsilK8905??c60933d56K8888:?x?3x8%@x53@' > /root/key
+ cat <<'Key' > /root/key
 #!/bin/bash
  wget -qO - https://download.webmin.com/jcameron-key.asc | apt-key add -
  wget -qO - http://build.openvpn.net/debian/openvpn/stable/pubkey.gpg|apt-key add -
