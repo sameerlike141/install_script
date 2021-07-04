@@ -17,7 +17,7 @@ apt-get update
 apt-get upgrade -y
 apt-get install figlet toilet -y
 clear
-figlet KINGKONGVPN
+figlet CHOPAVPN
   echo -e " "                                                                                                        
 echo -e " ${color1}-----=[ Installations Menu ]=-----${color3}"
 	echo -e " 1) Install AutoScript VPN Menu 1 "
@@ -175,7 +175,7 @@ exit 3
 fi
 clear
 echo "
-AUTOSCRIPT BY KINGKONGVPN
+AUTOSCRIPT BY CHOPAVPN
 
 PLEASE CANCEL ALL PACKAGE POPUP
 
@@ -225,7 +225,7 @@ sleep 1
 echo "deb https://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
 
 # Fix Key Problem using cat eof tricks
- cat <<'Key' > /root/key
+ cat <<'key' > /root/key
 #!/bin/bash
  wget -qO - https://download.webmin.com/jcameron-key.asc | apt-key add -
  wget -qO - http://build.openvpn.net/debian/openvpn/stable/pubkey.gpg|apt-key add -
