@@ -256,10 +256,13 @@ apt-get -y install webmin
 sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 export DEBIAN_FRONTEND=noninteractive
 
-# ssh
-sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
-sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
-wget -O /etc/issue.net "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/issue.net"
+# Banner
+rm /etc/issue.net
+wget -O /etc/issue.net "https://raw.githubusercontent.com/Gugun09/AutoScriptVPS/master/Files/Others/issue.net"
+sed -i 's@#Banner@Banner@g' /etc/ssh/sshd_config
+sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
+service ssh restart
+service dropbear restart
 
 #privoxy
 apt-get install privoxy -y
@@ -296,25 +299,13 @@ privoxy
  # Setting machine's IP Address inside of our privoxy config(security that only allows this machine to use this proxy server)
  sed -i "s/ipserver/$myip/g" /etc/privoxy/config
 
-# dropbear
+# Install Dropbear
 apt-get -y install dropbear
-wget -O /etc/default/dropbear "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Dropbear/dropbear"
-apt-get update && sudo apt-get install -y libz-dev
-apt-get update && sudo apt-get install -y make
-apt-get install -y build-essential
-wget https://matt.ucc.asn.au/dropbear/releases/dropbear-2020.80.tar.bz2
-bzip2 -cd dropbear-2020.80.tar.bz2 | tar xvf -
-cd dropbear-2020.80
-./configure
-make && make install
-mv /usr/sbin/dropbear /usr/sbin/dropbear.old
-ln /usr/local/sbin/dropbear /usr/sbin/dropbear
+sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=442/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 82 -p 142"/g' /etc/default/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
-/etc/init.d/dropbear restart
-rm -f /root/dropbear-2020.80.tar.bz2
-rm -rf /root/dropbear-2020.80
-rm -rf /root/dropbear-2020.80
 
 # squid3
 apt-get -y install squid
