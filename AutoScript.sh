@@ -17,7 +17,7 @@ apt-get update
 apt-get upgrade -y
 apt-get install figlet toilet -y
 clear
-figlet CHOPAVPN
+figlet KINGKONGVPN
   echo -e " "                                                                                                        
 echo -e " ${color1}-----=[ Installations Menu ]=-----${color3}"
 	echo -e " 1) Install AutoScript VPN Menu 1 "
@@ -31,20 +31,20 @@ echo -e "\n\n"
 case $Accounts in
 		1)
 		clear
-		wget -O /usr/local/bin/menu "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/menu"
-		wget -O /usr/local/bin/m "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/menu"
-		wget -O /usr/local/bin/autokill "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/autokill"
-		wget -O /usr/local/bin/user-generate "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-generate"
-		wget -O /usr/local/bin/user-lock "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-lock"
-		wget -O /usr/local/bin/user-unlock "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-unlock"
-		wget -O /usr/local/bin/auto-reboot "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/auto-reboot"
-		wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-password"
-		wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/trial"
-		wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/common-password"
-		wget -O /usr/local/bin/fastnetvpn.sh "https://raw.githubusercontent.com/xiihaiqal/ShadowsocksR/master/kingkongvpn.sh"
-		wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/edit-port"
+		wget -O /usr/local/bin/menu "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/menu"
+		wget -O /usr/local/bin/m "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/menu"
+		wget -O /usr/local/bin/autokill "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/autokill"
+		wget -O /usr/local/bin/user-generate "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-generate"
+		wget -O /usr/local/bin/user-lock "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-lock"
+		wget -O /usr/local/bin/user-unlock "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-unlock"
+		wget -O /usr/local/bin/auto-reboot "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/auto-reboot"
+		wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-password"
+		wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/trial"
+		wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/common-password"
+		wget -O /usr/local/bin/kingkongvpn.sh "https://raw.githubusercontent.com/xiihaiqal/ShadowsocksR/master/kingkongvpn.sh"
+		wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/edit-port"
 		chmod +x /usr/local/bin/edit-port
-		chmod +x /usr/local/bin/fastnetvpn.sh 
+		chmod +x /usr/local/bin/kingkongvpn.sh 
 		chmod +x /etc/pam.d/common-password
 		chmod +x /usr/local/bin/menu
 		chmod +x /usr/local/bin/m
@@ -148,7 +148,7 @@ case $Accounts in
 		5)
 		clear
 		echo -e "${color1}========================================${color3}"
-        echo -e "* ${color2}SCRIPT AUTO INSTALL BY ChopaVPN ${color3}*"
+        echo -e "* ${color2}SCRIPT AUTO INSTALL BY KingKongVPN ${color3}*"
         echo -e "${color1}========================================${color3}"
 		rm AutoScript
 		exit
@@ -175,7 +175,7 @@ exit 3
 fi
 clear
 echo "
-AUTOSCRIPT BY CHOPAVPN
+AUTOSCRIPT BY KINGKONGVPN
 
 PLEASE CANCEL ALL PACKAGE POPUP
 
@@ -256,13 +256,10 @@ apt-get -y install webmin
 sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 export DEBIAN_FRONTEND=noninteractive
 
-# Banner
-rm /etc/issue.net
-wget -O /etc/issue.net "https://raw.githubusercontent.com/Gugun09/AutoScriptVPS/master/Files/Others/issue.net"
-sed -i 's@#Banner@Banner@g' /etc/ssh/sshd_config
-sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
-service ssh restart
-service dropbear restart
+# ssh
+sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
+sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
+wget -O /etc/issue.net "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Other/issue.net"
 
 #privoxy
 apt-get install privoxy -y
@@ -299,13 +296,25 @@ privoxy
  # Setting machine's IP Address inside of our privoxy config(security that only allows this machine to use this proxy server)
  sed -i "s/ipserver/$myip/g" /etc/privoxy/config
 
-# Install Dropbear
+# dropbear
 apt-get -y install dropbear
-sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=442/g' /etc/default/dropbear
-sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 82 -p 142"/g' /etc/default/dropbear
+wget -O /etc/default/dropbear "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Dropbear/dropbear"
+apt-get update && sudo apt-get install -y libz-dev
+apt-get update && sudo apt-get install -y make
+apt-get install -y build-essential
+wget https://matt.ucc.asn.au/dropbear/releases/dropbear-2020.80.tar.bz2
+bzip2 -cd dropbear-2020.80.tar.bz2 | tar xvf -
+cd dropbear-2020.80
+./configure
+make && make install
+mv /usr/sbin/dropbear /usr/sbin/dropbear.old
+ln /usr/local/sbin/dropbear /usr/sbin/dropbear
 echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
+/etc/init.d/dropbear restart
+rm -f /root/dropbear-2020.80.tar.bz2
+rm -rf /root/dropbear-2020.80
+rm -rf /root/dropbear-2020.80
 
 # squid3
 apt-get -y install squid
@@ -452,8 +461,7 @@ Certificate:
             X509v3 Basic Constraints: 
                 CA:FALSE
             Netscape Cert Type: 
-                
-	Server
+                SSL Server
             Netscape Comment: 
                 Easy-RSA Generated Server Certificate
             X509v3 Subject Key Identifier: 
@@ -585,7 +593,7 @@ echo "push \"dhcp-option DNS 1.0.0.1\"" >> /etc/openvpn/server_udp.conf
  # executed/raised from this script (OpenVPN_TCP_Port/OpenVPN_UDP_Port)
  #
  # Enjoy the new update
- # Script Updated by ChopaVPN
+ # Script Updated by KingKongVPN
 NUovpn
 
  # Getting some OpenVPN plugins for unix authentication
@@ -664,7 +672,7 @@ apt-get install -y openssl >/dev/null 2>/dev/null
 apt-get install -y build-essential >/dev/null 2>/dev/null
 apt-get install -y cmake >/dev/null 2>/dev/null
 echo -e "\033[1;37mDownloading File Badvpn"; cd
-wget https://raw.githubusercontent.com/khvpn/install_script/master/Files/BadVPN/badvpn-1.999.128.tar.bz2 -o /dev/null
+wget https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/BadVPN/badvpn-1.999.128.tar.bz2 -o /dev/null
 echo -e "Extract Badvpn"
 tar -xf badvpn-1.999.128.tar.bz2
 echo -e "Setup configuration"
@@ -682,7 +690,7 @@ cd ; rm -rf badvpn.sh badvpn-1.999.128/ badvpn-1.999.128.tar.bz2 >/dev/null 2>/d
 
 # Stunnel
 apt-get install stunnel4 -y
-wget -P /etc/stunnel/ "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Stunnel/stunnel.conf"
+wget -P /etc/stunnel/ "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Stunnel/stunnel.conf"
  # Creating stunnel certifcate using openssl
 openssl req -new -x509 -days 9999 -nodes -subj "/C=MY/ST=SBH/L=TWU/O=KingKongVPN/OU=KingKongVPN/CN=KingKongVPN" -out /etc/stunnel/stunnel.pem -keyout /etc/stunnel/stunnel.pem &> /dev/null
 ##  > /dev/null 2>&1
@@ -777,7 +785,7 @@ cat <<'mySiteOvpn' > /home/vps/public_html/index.html
 <!DOCTYPE html>
 <html lang="en">
 
-<head><link rel="icon" type="image/png" href="https://cdn0.iconfinder.com/data/icons/universal-3-4/21/130-512.png"><meta charset="utf-8" /><title>Chopa OVPN Config Download</title><meta name="description" content="KingKongVPN Server" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" /><meta name="theme-color" content="#000000" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"><link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet"></head><body><div class="container justify-content-center" style="margin-top:9em;margin-bottom:5em;"><div class="col-md"><div class="view"><img src="https://openvpn.net/wp-content/uploads/openvpn.jpg" class="card-img-top"><div class="mask rgba-white-slight"></div></div><div class="card"><div class="card-body"><h5 class="card-title">Config List</h5><br /><ul class="list-group">
+<head><link rel="icon" type="image/png" href="https://cdn0.iconfinder.com/data/icons/universal-3-4/21/130-512.png"><meta charset="utf-8" /><title>KingkongVPN OVPN Config Download</title><meta name="description" content="KingKongVPN Server" /><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" /><meta name="theme-color" content="#000000" /><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"><link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet"></head><body><div class="container justify-content-center" style="margin-top:9em;margin-bottom:5em;"><div class="col-md"><div class="view"><img src="https://openvpn.net/wp-content/uploads/openvpn.jpg" class="card-img-top"><div class="mask rgba-white-slight"></div></div><div class="card"><div class="card-body"><h5 class="card-title">Config List</h5><br /><ul class="list-group">
 
 <li class="list-group-item justify-content-between align-items-center" style="margin-bottom:1em;"><p>For UDP <span class="badge light-blue darken-4">Android/iOS/PC/Modem</span><br /><small> UDP Server For OpenVPN</small></p><a class="btn btn-outline-success waves-effect btn-sm" href="http://IP-ADDRESS:NGINXPORT/client-udp.ovpn" style="float:right;"><i class="fa fa-download"></i> Download</a></li>
 
@@ -888,7 +896,7 @@ clear
 echo -e ""
 echo -e "\e[94m[][][]======================================[][][]" | tee -a log-install.txt
 echo -e "\e[0m                                                   " | tee -a log-install.txt
-echo -e "\e[94m           AutoScriptVPS by ChopaVPN              " | tee -a log-install.txt
+echo -e "\e[94m           AutoScriptVPS by KingKongVPN           " | tee -a log-install.txt
 echo -e "\e[94m             https://t.me/xiihaiqal               " | tee -a log-install.txt
 echo -e "\e[94m                    Services                      " | tee -a log-install.txt
 echo -e "\e[94m                                                  " | tee -a log-install.txt
