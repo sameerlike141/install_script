@@ -17,7 +17,7 @@ apt-get update
 apt-get upgrade -y
 apt-get install figlet toilet -y
 clear
-figlet KINGKONGVPN
+figlet CHOPAVPN
   echo -e " "                                                                                                        
 echo -e " ${color1}-----=[ Installations Menu ]=-----${color3}"
 	echo -e " 1) Install AutoScript VPN Menu 1 "
@@ -31,18 +31,18 @@ echo -e "\n\n"
 case $Accounts in
 		1)
 		clear
-		wget -O /usr/local/bin/menu "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/menu"
-		wget -O /usr/local/bin/m "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/menu"
-		wget -O /usr/local/bin/autokill "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/autokill"
-		wget -O /usr/local/bin/user-generate "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-generate"
-		wget -O /usr/local/bin/user-lock "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-lock"
-		wget -O /usr/local/bin/user-unlock "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-unlock"
-		wget -O /usr/local/bin/auto-reboot "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/auto-reboot"
-		wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/user-password"
-		wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/trial"
-		wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/common-password"
+		wget -O /usr/local/bin/menu "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/menu"
+		wget -O /usr/local/bin/m "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/menu"
+		wget -O /usr/local/bin/autokill "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/autokill"
+		wget -O /usr/local/bin/user-generate "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-generate"
+		wget -O /usr/local/bin/user-lock "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-lock"
+		wget -O /usr/local/bin/user-unlock "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-unlock"
+		wget -O /usr/local/bin/auto-reboot "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/auto-reboot"
+		wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-password"
+		wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/xiihaiqal/khvpn/install_script/Files/Menu/trial"
+		wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/common-password"
 		wget -O /usr/local/bin/kingkongvpn.sh "https://raw.githubusercontent.com/xiihaiqal/ShadowsocksR/master/kingkongvpn.sh"
-		wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/xiihaiqal/AutoScriptVPS/master/Files/Menu/edit-port"
+		wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/edit-port"
 		chmod +x /usr/local/bin/edit-port
 		chmod +x /usr/local/bin/kingkongvpn.sh 
 		chmod +x /etc/pam.d/common-password
