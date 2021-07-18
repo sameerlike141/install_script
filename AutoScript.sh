@@ -39,7 +39,7 @@ case $Accounts in
 		wget -O /usr/local/bin/user-unlock "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-unlock"
 		wget -O /usr/local/bin/auto-reboot "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/auto-reboot"
 		wget -O /usr/local/bin/user-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/user-password"
-		wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/xiihaiqal/khvpn/install_script/Files/Menu/trial"
+		wget -O /usr/local/bin/trial "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/trial"
 		wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/common-password"
 		wget -O /usr/local/bin/kingkongvpn.sh "https://raw.githubusercontent.com/xiihaiqal/ShadowsocksR/master/kingkongvpn.sh"
 		wget -O /usr/local/bin/edit-port "https://raw.githubusercontent.com/khvpn/install_script/master/Files/Menu/edit-port"
